@@ -1,5 +1,7 @@
 package hu.ulyssys.java.course.homework.hibernate.entities;
 
+import hu.ulyssys.java.course.homework.service.AuthorDaoService;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

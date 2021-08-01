@@ -3,7 +3,7 @@ package hu.ulyssys.java.course.homework.hibernate.entities;
 import javax.persistence.*;
 import java.util.Date;
 @MappedSuperclass
-public class AbstractBlog {
+public abstract class AbstractBlog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

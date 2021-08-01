@@ -4,12 +4,25 @@ import hu.ulyssys.java.course.homework.hibernate.entities.Author;
 import hu.ulyssys.java.course.homework.service.AuthorDaoService;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Alternative;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
-@ApplicationScoped
-public class AuthorDaoImpl  extends AbstractServiceImpl<Author> implements AuthorDaoService {
+
+@Alternative
+public class AuthorDaoImpl extends AbstractAuthorDaoServiceImpl<Author> implements AuthorDaoService {
+    @Override
+    public List<Author> findAll(Author blog) {
+        TypedQuery<Author> query = createEntityManager().createQuery("select n from Author n", Author.class);
+        return query.getResultList();
+    }
 
     @Override
-    public void update(Author blog) {
-
+    public List<Author> findByName(String name) {
+        TypedQuery<Author> query = createEntityManager().createQuery("select n from Author n where n.firstName=:firstName", Author.class);
+        query.setParameter("firstName", name);
+        return query.getResultList();
     }
+
+
 }
