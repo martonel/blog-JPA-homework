@@ -18,9 +18,4 @@ public interface CoreService<T extends AbstractBlog> {
 
     EntityManager createEntityManager();
 
-    //getall ->findall
-    //add -> save
-    //nome -> update
-    //remove -> nincs
-    //none ->findByTitle
 }
